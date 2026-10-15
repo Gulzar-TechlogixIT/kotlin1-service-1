@@ -1,19 +1,15 @@
-name: Kotlin service CI
+name: Kotlin Service 1 CI
 
 on:
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
   push:
     branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
+  pull_request:
+    branches: [main]
 
 jobs:
   ci:
-    # Replace OWNER and WORKFLOW_REF with the org/user and reviewed full commit SHA.
-    uses: OWNER/common/pipelines/kotlin-pipeline.yml@WORKFLOW_REF
+    uses: Gulzar-TechlogixIT/common/.github/workflows/kotlin-pipeline.yml@main
     with:
       java-version: "21"
       gradle-task: "build"
